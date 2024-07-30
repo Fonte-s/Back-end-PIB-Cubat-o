@@ -1,0 +1,6 @@
+@Back_end_PIB_Cubatão_HostAddress = http://localhost:5273
+
+GET {{Back_end_PIB_Cubatão_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
