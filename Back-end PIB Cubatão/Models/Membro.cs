@@ -35,12 +35,13 @@ namespace Back_end_PIB_Cubatão.Models
         public int MinisterioID { get; set; }
         [JsonIgnore]
         public Ministerio? Ministerio { get; set; }
-
-        public enum Status
-            {
-            Ativo,
-            Inativo
-            }
+        [Required]
+        public Status Status { get; set; }   
 
 }
+    public enum Status
+    {
+        Ativo,
+        Inativo
+    }
 }

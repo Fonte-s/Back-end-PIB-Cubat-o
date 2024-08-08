@@ -20,7 +20,7 @@ namespace Back_end_PIB_Cubatão.Models
             [Required]
             [StringLength(100)]
             [EmailAddress]
-            public int Email { get; set; }
+            public string Email { get; set; }
             [JsonIgnore]
             public DateTime DataDeFundacao { get; set; }
 
