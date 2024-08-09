@@ -1,0 +1,6 @@
+@Backend_PIB_Cubatao_HostAddress = http://localhost:5273
+
+GET {{Backend_PIB_Cubatao_HostAddress}}/program/
+Accept: application/json
+
+###
