@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Backend_PIB_Cubatao.Application\Backend_PIB_Cubatao.Application.csproj" />
+    <ProjectReference Include="..\Backend_PIB_Cubatao.Domain\Backend_PIB_Cubatao.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

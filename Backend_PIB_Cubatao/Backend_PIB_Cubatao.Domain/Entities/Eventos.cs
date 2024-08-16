@@ -9,24 +9,24 @@ namespace Backend_PIB_Cubatao.Domain.Entities
     {
         [Key]
         [Required]
-        public int EventosID {get; set; }
+        public int EventosID { get; set; }
         [Required]
         [StringLength(50)]
-        public string Nome { get; set; }
+        public string Nome { get; set; } = string.Empty;
         [Required]
         [StringLength(50)]
-        public string Descricao { get; set; }
+        public string Descricao { get; set; } = string.Empty;
         [Required]
         public DateTime DataHoraInicio { get; set; }
         [Required]
         public DateTime DataHoraFim { get; set; }
         [Required]
         [StringLength(100)]
-        public string Local { get; set;}
+        public string Local { get; set; } = string.Empty;
         [Required]
         [ForeignKey("Igreja")]
         public int IgrejaId { get; set; }
-        public Igreja Igreja { get; set; }
+        public Igreja Igreja { get; set; } = null!;
         public enum Tipo
         {
             Culto,

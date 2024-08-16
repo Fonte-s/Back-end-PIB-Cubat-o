@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="MediatR" Version="12.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
@@ -19,7 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Backend_PIB_Cubatao.Infrastructure\Backend_PIB_Cubatao.Infrastructure.csproj" />
+    <ProjectReference
+      Include="..\Backend_PIB_Cubatao.Infrastructure\Backend_PIB_Cubatao.Infrastructure.csproj" />
+    <ProjectReference
+      Include="..\Backend_PIB_Cubatao.Application\Backend_PIB_Cubatao.Application.csproj" />
+    <ProjectReference
+      Include="..\Backend_PIB_Cubatao.Domain\Backend_PIB_Cubatao.Domain.csproj" />
   </ItemGroup>
 
 </Project>

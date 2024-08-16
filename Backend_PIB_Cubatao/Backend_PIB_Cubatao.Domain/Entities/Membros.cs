@@ -32,7 +32,7 @@ namespace Backend_PIB_Cubatao.Domain.Entities
         [ForeignKey("Ministerio")]
         public int MinisterioID { get; set; }
         [JsonIgnore]
-        public Ministerio Ministerio { get; set; }
+        public Ministerio? Ministerio { get; set; }
 
         public enum Status
         {

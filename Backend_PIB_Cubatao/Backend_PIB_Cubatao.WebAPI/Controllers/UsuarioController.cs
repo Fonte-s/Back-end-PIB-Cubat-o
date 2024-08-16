@@ -1,6 +1,5 @@
 using Backend_PIB_Cubatao.Application.Commands.Requests;
 using Backend_PIB_Cubatao.Application.Commands.Responses;
-using Backend_PIB_Cubatao.Application.Handlers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,17 +9,15 @@ namespace Backend_PIB_Cubatao.WebAPI.Controllers
     [Route("[controller]")]
     public class UsuarioController : ControllerBase
     {
-        private readonly ICriarUsuarioHandler _criarUsuarioHandler;
-        public UsuarioController(ICriarUsuarioHandler criarUsuarioHandler)
+        private readonly IMediator _mediator;
+        public UsuarioController(IMediator mediator)
         {
-            _criarUsuarioHandler = criarUsuarioHandler;
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
-        [HttpPost]
-        [Route("CriarUsuario")]
-        public Task<CreateUsuarioResponse> Create([FromServices] IMediator mediator, [FromBody] CreateUsuarioRequest command)
+        [HttpPost("CriarUsuario")]
+        public async Task<CreateUsuarioResponse> Create([FromBody] CreateUsuarioRequest command)
         {
-            var response = mediator.Send(command);
-            return response;
+            return await _mediator.Send(command);
         }
     }
 }

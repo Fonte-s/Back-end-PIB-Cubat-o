@@ -3,7 +3,6 @@ using Backend_PIB_Cubatao.Domain.Interfaces;
 using Backend_PIB_Cubatao.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Backend_PIB_Cubatao.Infrastructure.Repositories
 {
@@ -16,7 +15,7 @@ namespace Backend_PIB_Cubatao.Infrastructure.Repositories
       _context = context;
       _userManager = userManager;
     }
-    public async Task<AddUsuarioResult> AddUsuario(Usuario usuario)
+    public async Task<Usuario?> AddUsuario(Usuario usuario)
     {
       if (usuario == null)
       {
@@ -30,12 +29,7 @@ namespace Backend_PIB_Cubatao.Infrastructure.Repositories
         throw new ApplicationException("Falha ao adicionar usuário" + string.Join(", ", result.Errors.Select(e => e.Description)));
       }
 
-      await _context.SaveChangesAsync();
-      return new AddUsuarioResult
-      {
-        Sucesso = true,
-        Mensagem = "Usuário adicionado com sucesso"
-      };
+      return usuario;
     }
 
     public async Task<IEnumerable<Usuario>> GetAllUsuarios()
@@ -43,13 +37,13 @@ namespace Backend_PIB_Cubatao.Infrastructure.Repositories
       return await Task.FromResult(_userManager.Users.ToList());
     }
 
-    public async Task<Usuario> GetUsuarioById(int usuarioId)
+    public async Task<Usuario?> GetUsuarioById(int usuarioId)
     {
       var usuario = await _userManager.Users.FirstOrDefaultAsync(user => user.Id == usuarioId.ToString()) ?? throw new ArgumentException("Usuário não encontrado");
       return usuario;
     }
 
-    public async Task<Usuario> UpdateUsuario(Usuario usuario)
+    public async Task<Usuario?> UpdateUsuario(Usuario usuario)
     {
       if (usuario == null)
       {
@@ -63,7 +57,7 @@ namespace Backend_PIB_Cubatao.Infrastructure.Repositories
       return usuario;
     }
 
-    public async Task<IResult> DeleteUsuario(int usuarioId)
+    public async Task<Usuario> DeleteUsuario(int usuarioId)
     {
       var usuario = await _userManager.Users.FirstOrDefaultAsync(user => user.Id == usuarioId.ToString()) ?? throw new Exception("Não foi possível encontrar o usuário para deleção");
       var result = await _userManager.DeleteAsync(usuario);
@@ -71,7 +65,7 @@ namespace Backend_PIB_Cubatao.Infrastructure.Repositories
       {
         throw new Exception("Falha ao deletar usuário");
       }
-      return Results.Ok("Usuário deletado com sucesso");
+      return usuario;
     }
   }
 }

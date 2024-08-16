@@ -1,6 +1,6 @@
-using System.Reflection;
+using Backend_PIB_Cubatao.Application.Configuration;
+using Backend_PIB_Cubatao.Domain.Configuration;
 using Backend_PIB_Cubatao.Infrastructure.Configurations;
-using MediatR;
 
 namespace Backend_PIB_Cubatao.WebAPI.Configuration
 {
@@ -9,8 +9,14 @@ namespace Backend_PIB_Cubatao.WebAPI.Configuration
         public static void AddWebAPI(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddControllers();
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR((cfg) =>
+            {
+                var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+                cfg.RegisterServicesFromAssemblies(assemblies);
+            });
+            services.AddDomain(configuration);
             services.AddInfrastructure(configuration);
+            services.AddApplication(configuration);
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
@@ -40,7 +46,6 @@ namespace Backend_PIB_Cubatao.WebAPI.Configuration
         }
         public static void UseWebAPI(this WebApplication app)
         {
-            app.UseInfraestructure();
             app.UseWebAPISwagger();
             app.UseWebAPICors();
             app.UseAuthorization();

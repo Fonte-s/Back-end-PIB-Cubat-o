@@ -3,28 +3,39 @@ using Backend_PIB_Cubatao.Application.Commands.Responses;
 using Backend_PIB_Cubatao.Domain.Entities;
 using Backend_PIB_Cubatao.Domain.Interfaces;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 
-public class CriarUsuarioHandler : IRequestHandler<CreateUsuarioRequest, CreateUsuarioResponse>
+namespace Backend_PIB_Cubatao.Application.Handlers
 {
-  private readonly IUsuarioRepository _usuarioRepository;
-  public CriarUsuarioHandler(IUsuarioRepository usuarioRepository)
+  public class CriarUsuarioHandler : IRequestHandler<CreateUsuarioRequest, CreateUsuarioResponse>
   {
-    _usuarioRepository = usuarioRepository;
-  }
-  public async Task<CreateUsuarioResponse> Handle(CreateUsuarioRequest request, CancellationToken cancellationToken)
-  {
-    var user = new Usuario
+    private readonly IUsuarioRepository _usuarioRepository;
+    public CriarUsuarioHandler(IUsuarioRepository usuarioRepository)
     {
-      UserName = request.NomeUsuario,
-      Email = request.Email
-    };
-    var result = await _usuarioRepository.AddUsuario(user);
-    return new CreateUsuarioResponse
+      _usuarioRepository = usuarioRepository;
+    }
+    public async Task<CreateUsuarioResponse> Handle(CreateUsuarioRequest request, CancellationToken cancellationToken)
     {
-      DataCriacao = new DateTime(),
-      Sucesso = result.Sucesso,
-      Mensagem = result.Mensagem
-    };
+      var result = new CreateUsuarioResponse
+      {
+        DataCriacao = new DateTime(),
+        Sucesso = false
+      };
+      var user = new Usuario
+      {
+        UserName = request.NomeUsuario,
+        Email = request.Email
+      };
+      var usuario = await _usuarioRepository.AddUsuario(user);
+      if (usuario is null)
+      {
+        result.Sucesso = false;
+        result.Mensagem = "Falha ao cadastrar usuário";
+        return result;
+      }
+
+      result.Sucesso = true;
+      result.Mensagem = "Sucesso ao cadastrar usuário";
+      return result;
+    }
   }
 }

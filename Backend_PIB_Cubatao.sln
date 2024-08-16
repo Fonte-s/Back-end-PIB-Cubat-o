@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend_PIB_Cubatao", "Backend_PIB_Cubatao", "{D4D94291-AA23-488D-B387-45B6AAD391BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend_PIB_Cubatao.WebAPI", "Backend_PIB_Cubatao\Backend_PIB_Cubatao.WebAPI\Backend_PIB_Cubatao.WebAPI.csproj", "{C7BA9A35-92AD-4EFC-B33E-B116FC6401B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend_PIB_Cubatao.Application", "Backend_PIB_Cubatao\Backend_PIB_Cubatao.Application\Backend_PIB_Cubatao.Application.csproj", "{C56B5418-DE11-4853-8E5E-AE485B064EA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend_PIB_Cubatao.Infrastructure", "Backend_PIB_Cubatao\Backend_PIB_Cubatao.Infrastructure\Backend_PIB_Cubatao.Infrastructure.csproj", "{D82774A9-B495-4C36-A66B-75278A3B7970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend_PIB_Cubatao.Domain", "Backend_PIB_Cubatao\Backend_PIB_Cubatao.Domain\Backend_PIB_Cubatao.Domain.csproj", "{2C648625-B6DD-483D-80D7-9897F029E712}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7BA9A35-92AD-4EFC-B33E-B116FC6401B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BA9A35-92AD-4EFC-B33E-B116FC6401B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BA9A35-92AD-4EFC-B33E-B116FC6401B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7BA9A35-92AD-4EFC-B33E-B116FC6401B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C56B5418-DE11-4853-8E5E-AE485B064EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C56B5418-DE11-4853-8E5E-AE485B064EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C56B5418-DE11-4853-8E5E-AE485B064EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C56B5418-DE11-4853-8E5E-AE485B064EA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D82774A9-B495-4C36-A66B-75278A3B7970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D82774A9-B495-4C36-A66B-75278A3B7970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D82774A9-B495-4C36-A66B-75278A3B7970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D82774A9-B495-4C36-A66B-75278A3B7970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C648625-B6DD-483D-80D7-9897F029E712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C648625-B6DD-483D-80D7-9897F029E712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C648625-B6DD-483D-80D7-9897F029E712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C648625-B6DD-483D-80D7-9897F029E712}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7BA9A35-92AD-4EFC-B33E-B116FC6401B8} = {D4D94291-AA23-488D-B387-45B6AAD391BD}
+		{C56B5418-DE11-4853-8E5E-AE485B064EA4} = {D4D94291-AA23-488D-B387-45B6AAD391BD}
+		{D82774A9-B495-4C36-A66B-75278A3B7970} = {D4D94291-AA23-488D-B387-45B6AAD391BD}
+		{2C648625-B6DD-483D-80D7-9897F029E712} = {D4D94291-AA23-488D-B387-45B6AAD391BD}
+	EndGlobalSection
+EndGlobal

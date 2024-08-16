@@ -8,8 +8,8 @@ namespace Backend_PIB_Cubatao.Domain.Entities
   public class Usuario : IdentityUser
   {
     [Required]
-    public string Nome { get; set; }
+    public string Nome { get; set; } = string.Empty;
     [Required]
-    public string Tipo { get; set; }
+    public string? Tipo { get; set; }
   }
 }

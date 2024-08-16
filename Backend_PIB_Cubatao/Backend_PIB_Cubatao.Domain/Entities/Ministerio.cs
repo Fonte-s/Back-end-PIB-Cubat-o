@@ -11,10 +11,10 @@ namespace Backend_PIB_Cubatao.Domain.Entities
         public int MinisterioID { get; set; }
         [Required]
         [StringLength(50)]
-        public string Nome { get; set; }
+        public string? Nome { get; set; }
         [Required]
         [StringLength(250)]
-        public string Descricao { get; set; }
+        public string? Descricao { get; set; }
         [Required]
         [ForeignKey("Igreja")]
         public int IgrejaID { get; set; }
