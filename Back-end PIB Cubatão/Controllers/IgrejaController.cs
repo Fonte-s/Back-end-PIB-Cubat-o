@@ -1,5 +1,6 @@
 ﻿using Back_end_PIB_Cubatão.Context;
 using Back_end_PIB_Cubatão.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Back_end_PIB_Cubatão.Controllers
@@ -18,6 +19,7 @@ namespace Back_end_PIB_Cubatão.Controllers
 
         }
         [HttpGet("{id:int}", Name = "BuscarIgreja")]
+        [Authorize]
         public ActionResult<Igreja> Get(int id)
         {
             var igreja = _context.Igrejas.FirstOrDefault(p => p.IgrejaID == id);
